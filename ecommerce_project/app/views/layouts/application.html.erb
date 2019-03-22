@@ -10,6 +10,14 @@
   </head>
 
   <body>
+     <h1 >EcommerceProject</h1>
+      <nav>
+         <li><%= link_to 'Home', products_path, :class=>"navbar-item" %></li>
+        <li>About Us</li>
+        <li>Contact</li>
+      </nav>
+
+
     <%= yield %>
   </body>
 </html>
