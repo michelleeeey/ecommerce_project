@@ -1,15 +1,7 @@
-<h2> Product Categories </h2>
-<ul>
-  <li><%= link_to 'Monitors', products_path(category_type: 1) %></li>
-  <li><%= link_to 'Keyboard', products_path(category_type: 2) %> </li>
-  <li><%= link_to 'Mouse', products_path(category_type: 3) %></li>
-  <li><%= link_to 'Printer', products_path(category_type: 4) %></li>
-  <li><%= link_to 'Webcam', products_path(category_type: 5) %></li>
-</ul>
 
 <hr/>
 
-<h2> All Products </h2>
+<h2>Products </h2>
     <ul>
         <% @products.each do |product| %>
         <h3><%= link_to product.name, product %></h3>
@@ -17,6 +9,6 @@
     </ul>
 
 
-
+<%= paginate @products %>
 
 
