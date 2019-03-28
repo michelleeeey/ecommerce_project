@@ -5,6 +5,10 @@
     <ul>
         <% @products.each do |product| %>
         <h3><%= link_to product.product_name, product %></h3>
+        <h4>Price: $<%= product.price %></h4>
+            <% if product.image? %>
+                <p><%= image_tag product.image.thumbnail.url %></p>
+            <%end%>
         <% end %>
     </ul>
 

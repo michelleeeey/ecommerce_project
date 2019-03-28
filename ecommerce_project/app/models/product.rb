@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   validates :product_name, :description, :price, :stock_quantity, presence: true
   validates :product_name, uniqueness: true
 
+  mount_uploader :image, ImageUploader
+
   def self.paging(page)
     page(page).per(5)
   end
