@@ -3,10 +3,10 @@
 class Product < ApplicationRecord
   belongs_to :category
 
-  validates :name, :description, :price, :stock_quantity, presence: true
-  validates :name, uniqueness: true
+  validates :product_name, :description, :price, :stock_quantity, presence: true
+  validates :product_name, uniqueness: true
 
-  def self.categorize(type)
-    where('category_id LIKE ?', type)
+  def self.paging(page)
+    page(page).per(5)
   end
 end

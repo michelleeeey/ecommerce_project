@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @products = if params[:category_type]
                   Product.where("category_id = #{params[:category_type]}").paging(page)
                 else
-                  Product.order(:name).paging(page)
+                  Product.order(:product_name).paging(page)
                 end
   end
 
