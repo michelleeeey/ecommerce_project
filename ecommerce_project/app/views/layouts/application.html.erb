@@ -14,8 +14,8 @@
       <nav>
          <li><%= link_to 'Home', root_path, :class=>"navbar-item" %></li>
          <li><%= link_to "Products", products_path %></li>
-        <li>About Us</li>
-        <li>Contact</li>
+         <li><%= link_to "About Us", static_path(permalink: 'about-us' ) %></li>
+         <li><%= link_to "Contact", static_path(permalink: 'contact') %></li>
       </nav>
 
       <h2> Product Categories </h2>
