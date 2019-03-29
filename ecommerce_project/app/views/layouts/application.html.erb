@@ -31,7 +31,7 @@
     <%= form_tag(search_results_path, method: "get") do %>
         <div class="navbar-item field has-addons">
           <div class="control select">
-            <%= select_tag "search_option", "<option>Search All</option><option>Monitors</option><option>Keyboard</option>
+            <%= select_tag "search_option", "<option>Search All</option><option>Monitor</option><option>Keyboard</option>
             <option>Mouse</option><option>Printer</option><option>Webcam</option>".html_safe %>
           </div>
           <div class="control">
@@ -45,7 +45,8 @@
 </div>
         <% end %>
 
-
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

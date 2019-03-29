@@ -1,2 +1,12 @@
-<h1>Search#results</h1>
-<p>Find me in app/views/search/results.html.erb</p>
+  <div class="container">
+    <h2 class="title is-3 is-spaced">Search Results</h2>
+    </div>
+        <h3 class= "subtitle is-6">Results found for "<%= @query %>" returned <%= pluralize(@search_query.size, 'result')%>.</h3>
+
+        <% @search_query.each do |s|%>
+          <h2 class="title is-size-5"><%= link_to s.product_name, s %></h2>
+          <h3 class="subtitle is-size-6 is-spaced">
+          </h3>
+          <% end %>
+
+<p><%= link_to 'Back', products_path %></p>
