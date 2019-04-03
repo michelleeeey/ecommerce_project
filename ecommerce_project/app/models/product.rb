@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   def self.paging(page)
     page(page).per(5)
   end
+
+  def self.categorize(type)
+    where('category_id LIKE ?', type)
+  end
 end
