@@ -1,6 +1,7 @@
+
+<h2 class="title is-size-3"><%= @product.class.name %></h2>
 <hr/>
-<h2><%= @product.class.name %></h2>
-<h2><%= @product.product_name %></h3>
+<h3 class="title is-size-4"><%= @product.product_name %></h3>
 <% if @product.image? %>
         <p><%= image_tag @product.image.medium.url %></p>
 <%end%>

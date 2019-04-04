@@ -1,7 +1,9 @@
   <div class="container">
-    <h2 class="title is-3 is-spaced">Search Results</h2>
+    <h2 class="title is-size-3 is-spaced">Search Results</h2>
+    <hr/>
     </div>
-        <h4 class= "subtitle is-6">Results found for "<%= @query %>" returned <%= pluralize(@products.size, 'result')%>.</h4>
+        <h4 class= "subtitle is-size-6">Results found for "<%= @query %>" returned <%= pluralize(@products.size, 'result')%>.</h4>
+        <br/>
         <%= render @products%>
 
 <p><%= link_to 'Back', products_path %></p>

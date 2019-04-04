@@ -7,46 +7,52 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
   </head>
 
   <body>
-     <h1 >EcommerceProject</h1>
-      <nav>
-         <li><%= link_to 'Home', root_path, :class=>"navbar-item" %></li>
-         <li><%= link_to "Products", products_path %></li>
-         <li><%= link_to "About Us", static_path(permalink: 'about-us' ) %></li>
-         <li><%= link_to "Contact", static_path(permalink: 'contact') %></li>
-      </nav>
-
-      <h2> Product Categories </h2>
-      <ul>
-        <li><%= link_to 'Monitors', products_path(category_type: 1) %></li>
-        <li><%= link_to 'Keyboard', products_path(category_type: 2) %> </li>
-        <li><%= link_to 'Mouse', products_path(category_type: 3) %></li>
-        <li><%= link_to 'Printer', products_path(category_type: 4) %></li>
-        <li><%= link_to 'Webcam', products_path(category_type: 5) %></li>
-      </ul>
 
 
-    <%= form_tag(search_results_path, method: "get") do %>
-        <div class="navbar-item field has-addons">
-          <div class="control select">
-            <%= select_tag "search_option", "<option>Search All</option><option>Monitor</option><option>Keyboard</option>
-            <option>Mouse</option><option>Printer</option><option>Webcam</option>".html_safe %>
+    <section class="section is hero is-small is-dark is-bold">
+          <div class="container">
+            <h1 class="title is-2">EcommerceProject</h1>
+              <nav class= "navbar" aria-label="main navigation">
+                <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                    <%= link_to 'Home', root_path, :class=>"navbar-item" %>
+                    <%= link_to "About Us", static_path(permalink: 'about-us' ), :class=>"navbar-item" %>
+                    <%= link_to "Contact", static_path(permalink: 'contact'), :class=>"navbar-item" %>
+                  </div>
+                </div>
+
+          <%= form_tag(search_results_path, method: "get") do %>
+                  <div class="navbar-item field has-addons">
+                    <div class="control select">
+                      <%= select_tag "search_option", "<option>Search All</option><option>Monitor</option><option>Keyboard</option>
+                      <option>Mouse</option><option>Printer</option><option>Webcam</option>".html_safe %>
+                    </div>
+                    <div class="control">
+                      <%= text_field_tag(:q, nil, class: "input") %>
+                    </div>
+                    <div class="control">
+                      <%= submit_tag("Search", class: "button is-info") %>
+                    </div>
+                  </div>
+              <% end %>
+            </nav>
           </div>
-          <div class="control">
-            <%= text_field_tag(:q, nil, class: "input") %>
-          </div>
-          <div class="control">
-            <%= submit_tag("Search", class: "button is-info") %>
-          </div>
+      </section>
 
-
-</div>
-        <% end %>
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <div class="container">
+      <section class= "section">
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>
