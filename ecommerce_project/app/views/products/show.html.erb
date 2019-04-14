@@ -1,15 +1,17 @@
 
-<h2 class="title is-size-3"><%= @product.class.name %></h2>
-<hr/>
-<h3 class="title is-size-4"><%= @product.product_name %></h3>
-<% if @product.image? %>
-        <p><%= image_tag @product.image.medium.url %></p>
-<%end%>
-<h3><%= @product.description %></h3>
-<br/>
-<h3>Price: $<%= @product.price %></h3>
-<br/>
-<h3>Stock remaining: <%= @product.stock_quantity %></h3>
+<div class="container">
+     <h2 class="title is-size-3"><%= @product.class.name %></h2>
+     <hr/>
+     <h3 class="title is-size-4"><%= @product.product_name %></h3>
+        <% if @product.image? %>
+                <p><%= image_tag(@product.image.medium.url, alt: "#{@product.product_name} image") %></p>
+        <%end%>
+     <h3><%= @product.description %></h3>
+     <br/>
+     <h3>Price: $<%= @product.price %></h3>
+     <br/>
+     <h3>Stock remaining: <%= @product.stock_quantity %></h3>
+</div>
 
 <br/>
 <p><%= link_to 'Back', products_path %></p>
