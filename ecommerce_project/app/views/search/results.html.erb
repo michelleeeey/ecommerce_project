@@ -1,10 +1,10 @@
   <div class="container">
-    <h2 class="title is-size-3 is-spaced">Search Results</h2>
-    <hr/>
-    </div>
-        <h4 class= "subtitle is-size-6">Results found for "<%= @query %>" returned <%= pluralize(@products.size, 'result')%>.</h4>
+    <h2 class="title is-size-3 is-spaced">Search Results</h2><hr/>
+    <h4 class= "subtitle is-size-6">Results found for "<%= @query %>" returned <%= pluralize(@products.size, 'result')%>.</h4>
         <br/>
         <%= render @products%>
+    </div>
+
 
 <div class="container">
   <section class="section">
@@ -17,8 +17,6 @@
           <h3>Price: $<%= product.price %></h3><br/>
           <% end %>
     </section>
-
-
-
+  </div>
 
 <p><%= link_to 'Back', products_path %></p>

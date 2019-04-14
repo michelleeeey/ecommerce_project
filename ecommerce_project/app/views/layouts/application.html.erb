@@ -2,28 +2,22 @@
 <html>
   <head>
     <title>BlitzPc</title>
-
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <% if request.ssl? %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
-    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-  <% else %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
-    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-  <% end %>
+    <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
   </head>
-
   <body>
-
-
     <section class="section is hero is-small is-dark is-bold">
       <div class="container">
 
@@ -37,14 +31,12 @@
                   <p class="level-item"></p>
                 <% end %>
             </div>
-
                 <div class="row level-right" style="padding: 10px;">
                   <div class="col-xs-6 text-right">
                     <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
                   </div>
                </div>
         </div>
-
 
             <div class="level-right" style="padding: 10px;">
               <% if notice %>
@@ -82,12 +74,8 @@
                     </div>
                   </div>
               <% end %>
-
-
-
             </nav>
           </div>
-
       </section>
 
 
