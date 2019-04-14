@@ -1,0 +1,19 @@
+
+
+
+<div class="column is-one-quarter has-gray-boarder  notification has-background-gray" style="margin: 0px">
+        <%= form_for order_item, remote: true do |f| %>
+        <p style="min-height: 100px" class="subtitle "><%= link_to product.product_name, product, :style => "text-decoration: none"%></p>
+
+        <p class="has-text-centered">
+          <%= image_tag product.image.thumbnail.url, :style => 'min-height:200px'%>
+        </p><br/>
+        <p class="has-text-centered">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></p><br/>
+        <p>
+        <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.submit "Add to Cart", class: "button is-info is-centered", style:"margin-left: 70px" %>
+            <%= f.number_field :quantity, value: 1, class: "input is-centered", min: 1, style: "width: 15%" %>
+        </p>
+
+      <% end %>
+      </div>

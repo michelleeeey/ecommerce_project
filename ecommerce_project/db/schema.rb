@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_010939) do
+ActiveRecord::Schema.define(version: 2019_04_11_183837) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -52,12 +52,41 @@ ActiveRecord::Schema.define(version: 2019_03_29_010939) do
     t.string "postal_code"
     t.string "country"
     t.string "email"
-    t.integer "user_account_id"
     t.integer "province_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["province_id"], name: "index_customers_on_province_id"
-    t.index ["user_account_id"], name: "index_customers_on_user_account_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.decimal "unit_price", precision: 12, scale: 3
+    t.integer "quantity"
+    t.decimal "total_price", precision: 12, scale: 3
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "subtotal", precision: 12, scale: 3
+    t.decimal "tax", precision: 12, scale: 3
+    t.decimal "shipping", precision: 12, scale: 3
+    t.decimal "total", precision: 12, scale: 3
+    t.integer "order_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -77,15 +106,18 @@ ActiveRecord::Schema.define(version: 2019_03_29_010939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.boolean "active"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "provinces", force: :cascade do |t|
-    t.string "name"
+    t.string "province_name"
     t.decimal "gst_rate"
     t.decimal "pst_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_provinces_on_user_id"
   end
 
   create_table "user_accounts", force: :cascade do |t|
@@ -103,7 +135,16 @@ ActiveRecord::Schema.define(version: 2019_03_29_010939) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "postalCode"
+    t.string "province"
+    t.integer "province_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -6,4 +6,19 @@
         <br/>
         <%= render @products%>
 
+<div class="container">
+  <section class="section">
+        <% @products.each do |product|%>
+          <h1 class="title is-size-5"><%= link_to product.product_name, product %></h1>
+          <h2 class="subtitle is-size-6 is-spaced">
+          <% if product.image? %>
+            <p><%= image_tag product.image.thumbnail.url %></p>
+          <%end%>
+          <h3>Price: $<%= product.price %></h3>
+          <% end %>
+    </section>
+
+
+
+
 <p><%= link_to 'Back', products_path %></p>

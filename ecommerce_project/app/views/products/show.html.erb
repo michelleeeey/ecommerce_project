@@ -6,8 +6,10 @@
         <p><%= image_tag @product.image.medium.url %></p>
 <%end%>
 <h3><%= @product.description %></h3>
+<br/>
 <h3>Price: $<%= @product.price %></h3>
+<br/>
 <h3>Stock remaining: <%= @product.stock_quantity %></h3>
 
-
+<br/>
 <p><%= link_to 'Back', products_path %></p>

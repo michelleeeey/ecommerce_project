@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EcommerceProject</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>BlitzPc</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
@@ -16,8 +25,38 @@
 
 
     <section class="section is hero is-small is-dark is-bold">
+      <div class="container">
+
+            <div class="level-right" style="padding: 10px;">
+                <% if user_signed_in? %>
+                  <p class="level-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => '' %></p>
+                  <p class="level-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => ''  %></p>
+                <% else %>
+                  <p class="level-item"><%= link_to "Sign up", new_user_registration_path, :class => ''  %></p>
+                  <p class="level-item"><%= link_to "Login", new_user_session_path, :class => ''  %></p>
+                  <p class="level-item"></p>
+                <% end %>
+            </div>
+
+                <div class="row level-right" style="padding: 10px;">
+                  <div class="col-xs-6 text-right">
+                    <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+                  </div>
+               </div>
+
+
+            <div class="level-right" style="padding: 10px;">
+              <% if notice %>
+                <p class="alert alert-success"><%= notice %></p>
+              <% end %>
+              <% if alert %>
+                <p class="alert alert-danger"><%= alert %></p>
+              <% end %>
+            </div>
+
+
           <div class="container">
-            <h1 class="title is-2">EcommerceProject</h1>
+            <h2 class="title is-2">Blitz PC</h2>
               <nav class= "navbar" aria-label="main navigation">
                 <div id="navbarBasicExample" class="navbar-menu">
                   <div class="navbar-start">
@@ -26,6 +65,7 @@
                     <%= link_to "Contact", static_path(permalink: 'contact'), :class=>"navbar-item" %>
                   </div>
                 </div>
+
 
           <%= form_tag(search_results_path, method: "get") do %>
                   <div class="navbar-item field has-addons">
@@ -41,13 +81,14 @@
                     </div>
                   </div>
               <% end %>
+
+
+
             </nav>
           </div>
+
       </section>
 
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
     <div class="container">
       <section class= "section">

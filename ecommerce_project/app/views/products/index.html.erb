@@ -1,27 +1,39 @@
-
-<h3>Filter Products</h3>
-
-        <ul>
-          <li><%= link_to 'New', products_path(new: 1) %></li>
-          <li ><%= link_to 'Recently Updated', products_path(updated: 2) %></li>
-        </ul>
-<br/>
-
-<h3> Product Categories </h3>
-      <ul>
-        <li><%= link_to 'Monitors', products_path(category_type: 1) %></li>
-        <li><%= link_to 'Keyboard', products_path(category_type: 2) %> </li>
-        <li><%= link_to 'Mouse', products_path(category_type: 3) %></li>
-        <li><%= link_to 'Printer', products_path(category_type: 4) %></li>
-        <li><%= link_to 'Webcam', products_path(category_type: 5) %></li>
-      </ul>
-
+<h2 class="title is-3">Products For Sale </h2>
 <hr/>
 
-<h2 class="title is-3">Products </h2>
+<div class="container " style="margin-top: 80px">
+  <div class="container " style="margin-top: 50px;">
+    <div class="columns is-multiline is-mobile is-8" >
+      <% @products.each do |product| %>
+        <%= render "product_row", product: product, order_item: @order_item %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%=render @products %>
 
-<%= paginate @products %>
+<div class="container " style="margin-top: 80px">
+<div class="container " style="margin-top: 50px;">
+  <div class="columns is-multiline is-mobile is-8" >
+
+      <%= render @products %>
+
+  </div>
+<div>
+
+
+
+
+
+
+
+
+ <div class="columns is-centered">
+    <%= paginate @products %></div>
+    <br />
+
+
+
+
 
 
