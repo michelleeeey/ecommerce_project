@@ -2,7 +2,6 @@
 
 class ProductsController < ApplicationController
   def index
-    # page = params[:page]
     @products = if params[:category_type]
                   Product.where("category_id = #{params[:category_type]}").page(params[:page]).per(4)
                 elsif params[:new]

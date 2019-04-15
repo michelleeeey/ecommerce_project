@@ -1,5 +1,5 @@
 <div class="column is-one-quarter has-gray-boarder  notification has-background-gray" style="margin: 0px">
-        <%= form_for order_item, remote: true do |f| %>
+        <%= form_for order_item, remote: true, :html => { :id => "form_for_#{product.id}" } do |f| %>
         <p style="min-height: 100px" class="subtitle "><%= link_to product.product_name, product, :style => "text-decoration: none"%></p>
         <p class="has-text-centered">
           <%= image_tag product.image.thumbnail.url, :style => 'min-height:200px'%>

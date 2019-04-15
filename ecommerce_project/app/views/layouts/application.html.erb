@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head >
+  <meta charset="UTF-8">
     <title>BlitzPc</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <% if request.ssl? %>
-      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
-      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-    <% else %>
-      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
-      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-    <% end %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -77,6 +70,7 @@
             </nav>
           </div>
       </section>
+
 
 
     <div class="container">
